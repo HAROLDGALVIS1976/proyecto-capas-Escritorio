@@ -1,0 +1,582 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FACTUFACILModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="FACTUFACILModelStoreContainer">
+    <EntitySet Name="ABONOSCOMPRASCREDITO" EntityType="FACTUFACILModel.Store.ABONOSCOMPRASCREDITO" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ABONOSVENTASCREDITO" EntityType="FACTUFACILModel.Store.ABONOSVENTASCREDITO" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CATEGORIA" EntityType="FACTUFACILModel.Store.CATEGORIA" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CLIENTES" EntityType="FACTUFACILModel.Store.CLIENTES" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="COMPRAS" EntityType="FACTUFACILModel.Store.COMPRAS" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="COMPRASCREDITO" EntityType="FACTUFACILModel.Store.COMPRASCREDITO" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DEVCOMPRAS" EntityType="FACTUFACILModel.Store.DEVCOMPRAS" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DEVENTA_PROD" EntityType="FACTUFACILModel.Store.DEVENTA_PROD" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="EMPLEADO" EntityType="FACTUFACILModel.Store.EMPLEADO" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="GASTOS" EntityType="FACTUFACILModel.Store.GASTOS" store:Type="Tables" store:Schema="dbo" store:Name="GASTOS">
+      <DefiningQuery>SELECT 
+      [GASTOS].[COMPROVANTE] AS [COMPROVANTE], 
+      [GASTOS].[FECHA] AS [FECHA], 
+      [GASTOS].[DESCRIPCION] AS [DESCRIPCION], 
+      [GASTOS].[MONTO] AS [MONTO], 
+      [GASTOS].[BENEFICIARIO] AS [BENEFICIARIO], 
+      [GASTOS].[NUIP] AS [NUIP], 
+      [GASTOS].[DESCRIPCION_DETALLADA] AS [DESCRIPCION_DETALLADA], 
+      [GASTOS].[BHABILITADO] AS [BHABILITADO]
+      FROM [dbo].[GASTOS] AS [GASTOS]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="ITEMS" EntityType="FACTUFACILModel.Store.ITEMS" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="LIBRODIARIO" EntityType="FACTUFACILModel.Store.LIBRODIARIO" store:Type="Tables" store:Schema="dbo" store:Name="LIBRODIARIO">
+      <DefiningQuery>SELECT 
+      [LIBRODIARIO].[VENTAS] AS [VENTAS], 
+      [LIBRODIARIO].[COMPRAS] AS [COMPRAS], 
+      [LIBRODIARIO].[GASTOS] AS [GASTOS], 
+      [LIBRODIARIO].[VENTASCRED] AS [VENTASCRED], 
+      [LIBRODIARIO].[AB_COMPRAS] AS [AB_COMPRAS], 
+      [LIBRODIARIO].[UTILIDAD] AS [UTILIDAD], 
+      [LIBRODIARIO].[FECHA] AS [FECHA]
+      FROM [dbo].[LIBRODIARIO] AS [LIBRODIARIO]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="PROVEEDORES" EntityType="FACTUFACILModel.Store.PROVEEDORES" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="REFERENCIAS" EntityType="FACTUFACILModel.Store.REFERENCIAS" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="RUTA" EntityType="FACTUFACILModel.Store.RUTA" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TIPO" EntityType="FACTUFACILModel.Store.TIPO" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TIPOUSUARIOREGISTRO" EntityType="FACTUFACILModel.Store.TIPOUSUARIOREGISTRO" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="USUARIOS" EntityType="FACTUFACILModel.Store.USUARIOS" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="VENTAS" EntityType="FACTUFACILModel.Store.VENTAS" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="VENTASCREDITO" EntityType="FACTUFACILModel.Store.VENTASCREDITO" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="fk_ABONOCOMPRAS_CREDITO" Association="FACTUFACILModel.Store.fk_ABONOCOMPRAS_CREDITO">
+      <End Role="PROVEEDORES" EntitySet="PROVEEDORES" />
+      <End Role="ABONOSCOMPRASCREDITO" EntitySet="ABONOSCOMPRASCREDITO" />
+    </AssociationSet>
+    <AssociationSet Name="fk_CLIENTES_ABONOSVENTASCRED" Association="FACTUFACILModel.Store.fk_CLIENTES_ABONOSVENTASCRED">
+      <End Role="CLIENTES" EntitySet="CLIENTES" />
+      <End Role="ABONOSVENTASCREDITO" EntitySet="ABONOSVENTASCREDITO" />
+    </AssociationSet>
+    <AssociationSet Name="fk_CLIENTES_RUTAS" Association="FACTUFACILModel.Store.fk_CLIENTES_RUTAS">
+      <End Role="RUTA" EntitySet="RUTA" />
+      <End Role="CLIENTES" EntitySet="CLIENTES" />
+    </AssociationSet>
+    <AssociationSet Name="fk_CLIENTES_TIPOUSUARIO" Association="FACTUFACILModel.Store.fk_CLIENTES_TIPOUSUARIO">
+      <End Role="TIPOUSUARIOREGISTRO" EntitySet="TIPOUSUARIOREGISTRO" />
+      <End Role="CLIENTES" EntitySet="CLIENTES" />
+    </AssociationSet>
+    <AssociationSet Name="fk_CLIENTES_VENTASCRED" Association="FACTUFACILModel.Store.fk_CLIENTES_VENTASCRED">
+      <End Role="CLIENTES" EntitySet="CLIENTES" />
+      <End Role="VENTASCREDITO" EntitySet="VENTASCREDITO" />
+    </AssociationSet>
+    <AssociationSet Name="fk_COMPRAS_PROVEEDORES" Association="FACTUFACILModel.Store.fk_COMPRAS_PROVEEDORES">
+      <End Role="PROVEEDORES" EntitySet="PROVEEDORES" />
+      <End Role="COMPRAS" EntitySet="COMPRAS" />
+    </AssociationSet>
+    <AssociationSet Name="fk_COMPRAS_REFERENCIAS" Association="FACTUFACILModel.Store.fk_COMPRAS_REFERENCIAS">
+      <End Role="REFERENCIAS" EntitySet="REFERENCIAS" />
+      <End Role="COMPRAS" EntitySet="COMPRAS" />
+    </AssociationSet>
+    <AssociationSet Name="fk_DEVCOMPRAS_COMPRAS" Association="FACTUFACILModel.Store.fk_DEVCOMPRAS_COMPRAS">
+      <End Role="COMPRAS" EntitySet="COMPRAS" />
+      <End Role="DEVCOMPRAS" EntitySet="DEVCOMPRAS" />
+    </AssociationSet>
+    <AssociationSet Name="fK_EMPLEADO_TIPOUSUARIOREG" Association="FACTUFACILModel.Store.fK_EMPLEADO_TIPOUSUARIOREG">
+      <End Role="TIPOUSUARIOREGISTRO" EntitySet="TIPOUSUARIOREGISTRO" />
+      <End Role="EMPLEADO" EntitySet="EMPLEADO" />
+    </AssociationSet>
+    <AssociationSet Name="fk_REFERENCIAS_CATERGORIA" Association="FACTUFACILModel.Store.fk_REFERENCIAS_CATERGORIA">
+      <End Role="CATEGORIA" EntitySet="CATEGORIA" />
+      <End Role="REFERENCIAS" EntitySet="REFERENCIAS" />
+    </AssociationSet>
+    <AssociationSet Name="fk_USUARIOS_ABONOSVENTASCRED" Association="FACTUFACILModel.Store.fk_USUARIOS_ABONOSVENTASCRED">
+      <End Role="USUARIOS" EntitySet="USUARIOS" />
+      <End Role="ABONOSVENTASCREDITO" EntitySet="ABONOSVENTASCREDITO" />
+    </AssociationSet>
+    <AssociationSet Name="fK_USUARIOS_TIPOUSUARIOREG" Association="FACTUFACILModel.Store.fK_USUARIOS_TIPOUSUARIOREG">
+      <End Role="TIPOUSUARIOREGISTRO" EntitySet="TIPOUSUARIOREGISTRO" />
+      <End Role="USUARIOS" EntitySet="USUARIOS" />
+    </AssociationSet>
+    <AssociationSet Name="fk_VENTAPROD_DEVENTAS" Association="FACTUFACILModel.Store.fk_VENTAPROD_DEVENTAS">
+      <End Role="VENTAS" EntitySet="VENTAS" />
+      <End Role="DEVENTA_PROD" EntitySet="DEVENTA_PROD" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VENTAS_CATEGORIA" Association="FACTUFACILModel.Store.FK_VENTAS_CATEGORIA">
+      <End Role="CATEGORIA" EntitySet="CATEGORIA" />
+      <End Role="VENTAS" EntitySet="VENTAS" />
+    </AssociationSet>
+    <AssociationSet Name="fk_VENTAS_CLIENTES" Association="FACTUFACILModel.Store.fk_VENTAS_CLIENTES">
+      <End Role="CLIENTES" EntitySet="CLIENTES" />
+      <End Role="VENTAS" EntitySet="VENTAS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VENTAS_REFERENCIAS" Association="FACTUFACILModel.Store.FK_VENTAS_REFERENCIAS">
+      <End Role="REFERENCIAS" EntitySet="REFERENCIAS" />
+      <End Role="VENTAS" EntitySet="VENTAS" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="ABONOSCOMPRASCREDITO">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="FACTURA" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="PROVEEDOR" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="ABONO" Type="float" Nullable="false" />
+    <Property Name="TIPO" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="FECHABONO" Type="datetime" Nullable="false" />
+    <Property Name="FECHAPAGO" Type="datetime" Nullable="false" />
+    <Property Name="IDPROVEEDOR" Type="int" Nullable="false" />
+    <Property Name="BHABILITADO" Type="int" />
+  </EntityType>
+  <EntityType Name="ABONOSVENTASCREDITO">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="REMISION" Type="varchar" Nullable="false" MaxLength="10" />
+    <Property Name="NUIP" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="ABONO" Type="float" Nullable="false" />
+    <Property Name="TIPO" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="FECHABONO" Type="datetime" Nullable="false" />
+    <Property Name="FECHAPAGO" Type="datetime" Nullable="false" />
+    <Property Name="IDUSUARIO" Type="int" Nullable="false" />
+    <Property Name="IDCLIENTE" Type="int" Nullable="false" />
+    <Property Name="BHABILITADO" Type="int" />
+    <Property Name="CONSECUTIVO" Type="varchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="CATEGORIA">
+    <Key>
+      <PropertyRef Name="IDCATEGORIA" />
+    </Key>
+    <Property Name="IDCATEGORIA" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="NOMBRE" Type="varchar" MaxLength="200" />
+    <Property Name="BHABILITADO" Type="int" />
+  </EntityType>
+  <EntityType Name="CLIENTES">
+    <Key>
+      <PropertyRef Name="IDCLIENTE" />
+    </Key>
+    <Property Name="IDCLIENTE" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="CLIENTE" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="NUIP" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="DIRECCION" Type="varchar" Nullable="false" MaxLength="200" />
+    <Property Name="TELEFONO" Type="varchar" Nullable="false" MaxLength="200" />
+    <Property Name="CIUDAD" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="EMAIL" Type="varchar" Nullable="false" MaxLength="200" />
+    <Property Name="IDRUTA" Type="int" Nullable="false" />
+    <Property Name="BHABILITADO" Type="int" />
+    <Property Name="TIPOUSUARIO" Type="char" Nullable="false" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="COMPRAS">
+    <Key>
+      <PropertyRef Name="IDCOMPRA" />
+    </Key>
+    <Property Name="IDCOMPRA" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="FACTURA" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="REF" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="CANT" Type="float" Nullable="false" />
+    <Property Name="VALCOSTO_UNI" Type="float" Nullable="false" />
+    <Property Name="PROVEEDOR" Type="varchar" Nullable="false" MaxLength="150" />
+    <Property Name="SUBTOTAL" Type="float" Nullable="false" />
+    <Property Name="TIPO" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="FECHACOMPRA" Type="datetime" Nullable="false" />
+    <Property Name="FECHAPAGO" Type="datetime" Nullable="false" />
+    <Property Name="IDPROVEEDOR" Type="int" Nullable="false" />
+    <Property Name="BHABILITADO" Type="int" />
+    <Property Name="IDREF" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="COMPRASCREDITO">
+    <Key>
+      <PropertyRef Name="IDCREDITO" />
+    </Key>
+    <Property Name="IDCREDITO" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="FACTURA" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="PROVEEDOR" Type="varchar" Nullable="false" MaxLength="150" />
+    <Property Name="MONTODEUDA" Type="float" Nullable="false" />
+    <Property Name="TIPO" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="FECHAPAGO" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DEVCOMPRAS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="IDCOMPRA" Type="int" Nullable="false" />
+    <Property Name="FACTURA" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="REF" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="CANT" Type="float" Nullable="false" />
+    <Property Name="VALCOSTO_UNI" Type="float" Nullable="false" />
+    <Property Name="PROVEEDOR" Type="varchar" Nullable="false" MaxLength="150" />
+    <Property Name="SUBTOTAL" Type="float" Nullable="false" />
+    <Property Name="TIPO" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="FECHACOMPRA" Type="datetime" Nullable="false" />
+    <Property Name="FECHAPAGO" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DEVENTA_PROD">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="IDVENTA" Type="int" Nullable="false" />
+    <Property Name="REMISION" Type="varchar" Nullable="false" MaxLength="10" />
+    <Property Name="REF" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="DESCRIPCION" Type="varchar" Nullable="false" MaxLength="200" />
+    <Property Name="NUIP" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="VALUNI_VENTA" Type="float" Nullable="false" />
+    <Property Name="CANT" Type="float" Nullable="false" />
+    <Property Name="SUBTOTAL" Type="float" Nullable="false" />
+    <Property Name="TIPO" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="FECHAVENTA" Type="datetime" Nullable="false" />
+    <Property Name="FECHAPAGO" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EMPLEADO">
+    <Key>
+      <PropertyRef Name="IIDEMPLEADO" />
+    </Key>
+    <Property Name="IIDEMPLEADO" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="NOMBRE" Type="varchar" MaxLength="100" />
+    <Property Name="FECHACONTRATO" Type="datetime" />
+    <Property Name="SUELDO" Type="float" />
+    <Property Name="EMAIL" Type="varchar" MaxLength="100" />
+    <Property Name="TELEFONO" Type="int" />
+    <Property Name="BHABILITADO" Type="int" />
+    <Property Name="TIPOUSUARIO" Type="char" Nullable="false" MaxLength="1" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'FACTUFACIL.dbo.GASTOS' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="GASTOS">
+    <Key>
+      <PropertyRef Name="COMPROVANTE" />
+      <PropertyRef Name="FECHA" />
+      <PropertyRef Name="DESCRIPCION" />
+      <PropertyRef Name="MONTO" />
+      <PropertyRef Name="BENEFICIARIO" />
+      <PropertyRef Name="NUIP" />
+      <PropertyRef Name="DESCRIPCION_DETALLADA" />
+    </Key>
+    <Property Name="COMPROVANTE" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="FECHA" Type="datetime" Nullable="false" />
+    <Property Name="DESCRIPCION" Type="varchar" Nullable="false" MaxLength="150" />
+    <Property Name="MONTO" Type="float" Nullable="false" />
+    <Property Name="BENEFICIARIO" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="NUIP" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="DESCRIPCION_DETALLADA" Type="varchar" Nullable="false" MaxLength="150" />
+    <Property Name="BHABILITADO" Type="int" />
+  </EntityType>
+  <EntityType Name="ITEMS">
+    <Key>
+      <PropertyRef Name="IDITEM" />
+    </Key>
+    <Property Name="IDITEM" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="DESCRIPCION" Type="varchar" Nullable="false" MaxLength="150" />
+    <Property Name="BHABILITADO" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'FACTUFACIL.dbo.LIBRODIARIO' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="LIBRODIARIO">
+    <Key>
+      <PropertyRef Name="VENTAS" />
+      <PropertyRef Name="COMPRAS" />
+      <PropertyRef Name="GASTOS" />
+      <PropertyRef Name="VENTASCRED" />
+      <PropertyRef Name="AB_COMPRAS" />
+      <PropertyRef Name="UTILIDAD" />
+      <PropertyRef Name="FECHA" />
+    </Key>
+    <Property Name="VENTAS" Type="float" Nullable="false" />
+    <Property Name="COMPRAS" Type="float" Nullable="false" />
+    <Property Name="GASTOS" Type="float" Nullable="false" />
+    <Property Name="VENTASCRED" Type="float" Nullable="false" />
+    <Property Name="AB_COMPRAS" Type="float" Nullable="false" />
+    <Property Name="UTILIDAD" Type="float" Nullable="false" />
+    <Property Name="FECHA" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PROVEEDORES">
+    <Key>
+      <PropertyRef Name="IDPROVEEDOR" />
+    </Key>
+    <Property Name="IDPROVEEDOR" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="PROVEEDOR" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="NUIP" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="DIRECCION" Type="varchar" Nullable="false" MaxLength="200" />
+    <Property Name="TELEFONO" Type="varchar" Nullable="false" MaxLength="200" />
+    <Property Name="CIUDAD" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="EMAIL" Type="varchar" Nullable="false" MaxLength="200" />
+    <Property Name="BHABILITADO" Type="int" />
+  </EntityType>
+  <EntityType Name="REFERENCIAS">
+    <Key>
+      <PropertyRef Name="IDREF" />
+    </Key>
+    <Property Name="IDREF" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="REF" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="DESCRIPCION" Type="varchar" Nullable="false" MaxLength="200" />
+    <Property Name="CANT" Type="float" Nullable="false" />
+    <Property Name="VALCOSTO_UNI" Type="float" Nullable="false" />
+    <Property Name="VALUNI_VENTA" Type="float" Nullable="false" />
+    <Property Name="CANT_MINIMA" Type="float" Nullable="false" />
+    <Property Name="VALCOSTO_TOTAL" Type="float" Nullable="false" />
+    <Property Name="VALVENTA_TOTAL" Type="float" Nullable="false" />
+    <Property Name="IMAGEN" Type="varchar(max)" Nullable="false" />
+    <Property Name="UNI_MEDIDA" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="IDCATEGORIA" Type="int" />
+    <Property Name="BHABILITADO" Type="int" />
+    <Property Name="VALMIN_VENTA" Type="float" />
+    <Property Name="PORCENTAJE" Type="float" />
+  </EntityType>
+  <EntityType Name="RUTA">
+    <Key>
+      <PropertyRef Name="IDRUTA" />
+    </Key>
+    <Property Name="IDRUTA" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="NOMBRERUTA" Type="varchar" MaxLength="200" />
+    <Property Name="BHABILITADO" Type="int" />
+  </EntityType>
+  <EntityType Name="TIPO">
+    <Key>
+      <PropertyRef Name="IDTIPO" />
+    </Key>
+    <Property Name="IDTIPO" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="TIPOVENTA" Type="varchar" MaxLength="200" />
+    <Property Name="BHABILITADO" Type="int" />
+  </EntityType>
+  <EntityType Name="TIPOUSUARIOREGISTRO">
+    <Key>
+      <PropertyRef Name="TIPOUSUARIO" />
+    </Key>
+    <Property Name="TIPOUSUARIO" Type="char" Nullable="false" MaxLength="1" />
+    <Property Name="NOMBRE" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="USUARIOS">
+    <Key>
+      <PropertyRef Name="IDUSUARIO" />
+    </Key>
+    <Property Name="IDUSUARIO" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="USUARIO" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="CONTRASEÑA" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="TIPOUSUARIO" Type="char" Nullable="false" MaxLength="1" />
+    <Property Name="BHABILITADO" Type="int" />
+  </EntityType>
+  <EntityType Name="VENTAS">
+    <Key>
+      <PropertyRef Name="IDVENTA" />
+    </Key>
+    <Property Name="IDVENTA" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="REMISION" Type="varchar" Nullable="false" MaxLength="10" />
+    <Property Name="REF" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="DESCRIPCION" Type="varchar" Nullable="false" MaxLength="200" />
+    <Property Name="NUIP" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="VALUNI_VENTA" Type="float" Nullable="false" />
+    <Property Name="CANT" Type="float" Nullable="false" />
+    <Property Name="SUBTOTAL" Type="float" Nullable="false" />
+    <Property Name="TIPO" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="FECHAVENTA" Type="datetime" Nullable="false" />
+    <Property Name="FECHAPAGO" Type="datetime" Nullable="false" />
+    <Property Name="IDCLIENTE" Type="int" Nullable="false" />
+    <Property Name="UTILIDAD" Type="float" />
+    <Property Name="IDCATEGORIA" Type="int" />
+    <Property Name="IDREF" Type="int" />
+  </EntityType>
+  <EntityType Name="VENTASCREDITO">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="REMISION" Type="varchar" Nullable="false" MaxLength="10" />
+    <Property Name="NUIP" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="MONTODEUDA" Type="float" Nullable="false" />
+    <Property Name="TIPO" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="FECHAPAGO" Type="datetime" Nullable="false" />
+    <Property Name="IDCLIENTE" Type="int" Nullable="false" />
+    <Property Name="BHABILITADO" Type="int" />
+    <Property Name="IDCARRO" Type="int" Nullable="false" />
+    <Property Name="CONSECUTIVO" Type="varchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <Association Name="fk_ABONOCOMPRAS_CREDITO">
+    <End Role="PROVEEDORES" Type="FACTUFACILModel.Store.PROVEEDORES" Multiplicity="1" />
+    <End Role="ABONOSCOMPRASCREDITO" Type="FACTUFACILModel.Store.ABONOSCOMPRASCREDITO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PROVEEDORES">
+        <PropertyRef Name="IDPROVEEDOR" />
+      </Principal>
+      <Dependent Role="ABONOSCOMPRASCREDITO">
+        <PropertyRef Name="IDPROVEEDOR" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_CLIENTES_ABONOSVENTASCRED">
+    <End Role="CLIENTES" Type="FACTUFACILModel.Store.CLIENTES" Multiplicity="1" />
+    <End Role="ABONOSVENTASCREDITO" Type="FACTUFACILModel.Store.ABONOSVENTASCREDITO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CLIENTES">
+        <PropertyRef Name="IDCLIENTE" />
+      </Principal>
+      <Dependent Role="ABONOSVENTASCREDITO">
+        <PropertyRef Name="IDCLIENTE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_CLIENTES_RUTAS">
+    <End Role="RUTA" Type="FACTUFACILModel.Store.RUTA" Multiplicity="1" />
+    <End Role="CLIENTES" Type="FACTUFACILModel.Store.CLIENTES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RUTA">
+        <PropertyRef Name="IDRUTA" />
+      </Principal>
+      <Dependent Role="CLIENTES">
+        <PropertyRef Name="IDRUTA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_CLIENTES_TIPOUSUARIO">
+    <End Role="TIPOUSUARIOREGISTRO" Type="FACTUFACILModel.Store.TIPOUSUARIOREGISTRO" Multiplicity="1" />
+    <End Role="CLIENTES" Type="FACTUFACILModel.Store.CLIENTES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TIPOUSUARIOREGISTRO">
+        <PropertyRef Name="TIPOUSUARIO" />
+      </Principal>
+      <Dependent Role="CLIENTES">
+        <PropertyRef Name="TIPOUSUARIO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_CLIENTES_VENTASCRED">
+    <End Role="CLIENTES" Type="FACTUFACILModel.Store.CLIENTES" Multiplicity="1" />
+    <End Role="VENTASCREDITO" Type="FACTUFACILModel.Store.VENTASCREDITO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CLIENTES">
+        <PropertyRef Name="IDCLIENTE" />
+      </Principal>
+      <Dependent Role="VENTASCREDITO">
+        <PropertyRef Name="IDCLIENTE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_COMPRAS_PROVEEDORES">
+    <End Role="PROVEEDORES" Type="FACTUFACILModel.Store.PROVEEDORES" Multiplicity="1" />
+    <End Role="COMPRAS" Type="FACTUFACILModel.Store.COMPRAS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PROVEEDORES">
+        <PropertyRef Name="IDPROVEEDOR" />
+      </Principal>
+      <Dependent Role="COMPRAS">
+        <PropertyRef Name="IDPROVEEDOR" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_COMPRAS_REFERENCIAS">
+    <End Role="REFERENCIAS" Type="FACTUFACILModel.Store.REFERENCIAS" Multiplicity="1" />
+    <End Role="COMPRAS" Type="FACTUFACILModel.Store.COMPRAS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="REFERENCIAS">
+        <PropertyRef Name="IDREF" />
+      </Principal>
+      <Dependent Role="COMPRAS">
+        <PropertyRef Name="IDREF" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_DEVCOMPRAS_COMPRAS">
+    <End Role="COMPRAS" Type="FACTUFACILModel.Store.COMPRAS" Multiplicity="1" />
+    <End Role="DEVCOMPRAS" Type="FACTUFACILModel.Store.DEVCOMPRAS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="COMPRAS">
+        <PropertyRef Name="IDCOMPRA" />
+      </Principal>
+      <Dependent Role="DEVCOMPRAS">
+        <PropertyRef Name="IDCOMPRA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fK_EMPLEADO_TIPOUSUARIOREG">
+    <End Role="TIPOUSUARIOREGISTRO" Type="FACTUFACILModel.Store.TIPOUSUARIOREGISTRO" Multiplicity="1" />
+    <End Role="EMPLEADO" Type="FACTUFACILModel.Store.EMPLEADO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TIPOUSUARIOREGISTRO">
+        <PropertyRef Name="TIPOUSUARIO" />
+      </Principal>
+      <Dependent Role="EMPLEADO">
+        <PropertyRef Name="TIPOUSUARIO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_REFERENCIAS_CATERGORIA">
+    <End Role="CATEGORIA" Type="FACTUFACILModel.Store.CATEGORIA" Multiplicity="0..1" />
+    <End Role="REFERENCIAS" Type="FACTUFACILModel.Store.REFERENCIAS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CATEGORIA">
+        <PropertyRef Name="IDCATEGORIA" />
+      </Principal>
+      <Dependent Role="REFERENCIAS">
+        <PropertyRef Name="IDCATEGORIA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_USUARIOS_ABONOSVENTASCRED">
+    <End Role="USUARIOS" Type="FACTUFACILModel.Store.USUARIOS" Multiplicity="1" />
+    <End Role="ABONOSVENTASCREDITO" Type="FACTUFACILModel.Store.ABONOSVENTASCREDITO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USUARIOS">
+        <PropertyRef Name="IDUSUARIO" />
+      </Principal>
+      <Dependent Role="ABONOSVENTASCREDITO">
+        <PropertyRef Name="IDUSUARIO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fK_USUARIOS_TIPOUSUARIOREG">
+    <End Role="TIPOUSUARIOREGISTRO" Type="FACTUFACILModel.Store.TIPOUSUARIOREGISTRO" Multiplicity="1" />
+    <End Role="USUARIOS" Type="FACTUFACILModel.Store.USUARIOS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TIPOUSUARIOREGISTRO">
+        <PropertyRef Name="TIPOUSUARIO" />
+      </Principal>
+      <Dependent Role="USUARIOS">
+        <PropertyRef Name="TIPOUSUARIO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_VENTAPROD_DEVENTAS">
+    <End Role="VENTAS" Type="FACTUFACILModel.Store.VENTAS" Multiplicity="1" />
+    <End Role="DEVENTA_PROD" Type="FACTUFACILModel.Store.DEVENTA_PROD" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VENTAS">
+        <PropertyRef Name="IDVENTA" />
+      </Principal>
+      <Dependent Role="DEVENTA_PROD">
+        <PropertyRef Name="IDVENTA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VENTAS_CATEGORIA">
+    <End Role="CATEGORIA" Type="FACTUFACILModel.Store.CATEGORIA" Multiplicity="0..1" />
+    <End Role="VENTAS" Type="FACTUFACILModel.Store.VENTAS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CATEGORIA">
+        <PropertyRef Name="IDCATEGORIA" />
+      </Principal>
+      <Dependent Role="VENTAS">
+        <PropertyRef Name="IDCATEGORIA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_VENTAS_CLIENTES">
+    <End Role="CLIENTES" Type="FACTUFACILModel.Store.CLIENTES" Multiplicity="1" />
+    <End Role="VENTAS" Type="FACTUFACILModel.Store.VENTAS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CLIENTES">
+        <PropertyRef Name="IDCLIENTE" />
+      </Principal>
+      <Dependent Role="VENTAS">
+        <PropertyRef Name="IDCLIENTE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VENTAS_REFERENCIAS">
+    <End Role="REFERENCIAS" Type="FACTUFACILModel.Store.REFERENCIAS" Multiplicity="0..1" />
+    <End Role="VENTAS" Type="FACTUFACILModel.Store.VENTAS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="REFERENCIAS">
+        <PropertyRef Name="IDREF" />
+      </Principal>
+      <Dependent Role="VENTAS">
+        <PropertyRef Name="IDREF" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

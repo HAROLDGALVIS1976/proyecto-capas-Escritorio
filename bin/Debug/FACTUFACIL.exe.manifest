@@ -1,0 +1,105 @@
+Ôªø<?xml version="1.0" encoding="utf-8"?>
+<asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
+  <asmv1:assemblyIdentity name="FACTUFACIL.exe" version="1.0.0.5" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
+  <description asmv2:iconFile="GYGSYSTEMS.ico" asmv2:publisher="www.gygsystems.com" co.v1:suiteName="FACTUFACIL" asmv2:product="FACTUFACIL" xmlns="urn:schemas-microsoft-com:asm.v1" />
+  <application />
+  <entryPoint>
+    <assemblyIdentity name="FACTUFACIL" version="1.0.0.0" publicKeyToken="180BBDB7E9C438AF" language="neutral" processorArchitecture="msil" />
+    <commandLine file="FACTUFACIL.exe" parameters="" />
+  </entryPoint>
+  <co.v1:useManifestForTrust xmlns="urn:schemas-microsoft-com:asm.v1" />
+  <trustInfo>
+    <security>
+      <applicationRequestMinimum>
+        <PermissionSet version="1" class="System.Security.NamedPermissionSet" Name="LocalIntranet" Description="Default rights given to applications on the local intranet" Unrestricted="true" ID="Custom" SameSite="site" />
+        <defaultAssemblyRequest permissionSetReference="Custom" />
+      </applicationRequestMinimum>
+      <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
+        <!-- UAC Manifest Options
+            If you want to change the Windows User Account Control level replace the 
+            requestedExecutionLevel node with one of the following.
+
+        <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
+        <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
+        <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
+
+            Specifying requestedExecutionLevel node will disable file and registry virtualization.
+            If you want to utilize File and Registry Virtualization for backward 
+            compatibility then delete the requestedExecutionLevel node.
+        -->
+        <requestedExecutionLevel level="asInvoker" uiAccess="false" />
+      </requestedPrivileges>
+    </security>
+  </trustInfo>
+  <dependency>
+    <dependentOS>
+      <osVersionInfo>
+        <os majorVersion="5" minorVersion="1" buildNumber="2600" servicePackMajor="0" />
+      </osVersionInfo>
+    </dependentOS>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.Windows.CommonLanguageRuntime" version="4.0.30319.0" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="EntityFramework.dll" size="1116760">
+      <assemblyIdentity name="EntityFramework" version="5.0.0.0" publicKeyToken="B77A5C561934E089" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>PoNKnbJ6KecCojr5W66/YqltD4tkc9jUL2AUPZPv3LU=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="FACTUFACIL.exe" size="1626624">
+      <assemblyIdentity name="FACTUFACIL" version="1.0.0.0" publicKeyToken="180BBDB7E9C438AF" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>PH3ZmSFKqVyL/Adrk3P4MA0IMPWz2Iiq9pZU67BEuS4=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Microsoft.VisualBasic.PowerPacks.Vs.dll" size="269344">
+      <assemblyIdentity name="Microsoft.VisualBasic.PowerPacks.Vs" version="10.0.0.0" publicKeyToken="B03F5F7F11D50A3A" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>jdtxd2sS/GAR6K8OHfT7S3JBSwXU0RywsX+ucaNWQF4=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <file name="FACTUFACIL.exe.config" size="587">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>xIAmWaVGMXMsZqDbBG/gnp3EjFMhICHxDOadcV+DX2s=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="GYGSYSTEMS.ico" size="150014">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>f/ihU0wBMZbGwWBxUpvYKr8kq4XKt1s3VthbQdgtITE=</dsig:DigestValue>
+    </hash>
+  </file>
+  <compatibility xmlns="urn:schemas-microsoft-com:compatibility.v1">
+    <application>
+      <!-- A list of all Windows versions that this application is designed to work with. 
+      Windows will automatically select the most compatible environment.-->
+      <!-- If your application is designed to work ´Ñ'÷¨ük+zßêyeœ/|p‚ÖSOÅUn≤°—4j‚œ9.$#y˙±–¬xXfëKuıe¬=:˛N89õàÑ≤ó4‹nd0eù\e5bJ€V{.F≈ÊG)·¶671?7Ÿó’&ºy%fIÇoäˇ∞2Ê∆€\®M÷—“È(∏dSwUê–›d∆eF¡ab$ºrSAÆ›@®`NÔ"zGÈc"ª$0=Ì*WÚAu+f	ø'5{s†∑¯7ñ¥TÁ≈usÜŒj&u|T¥qà’r=zÕ≤>¿˘∆ŒŒn⁄Ø©<%cÎ§Ñfh‰ã£/Àãa=<ÿRÃUFıqobÑCÈ;-Ì}ÙrnA‚a<»•˝ÌJ‡O~zÌ¢sFyƒ4<Vj¶sPÊÁ±aÌÃÿ√7ﬂsz†’ReíM.K”ìq¶ q$·ó£ñ’˘|åo2ü(‡h<jy<AÉÈ>°DzŒ-Ú±ÂÔdTIÛj≈˛ßà%–È¶¶í•ﬁOÀ<âX ,Kø4xTßh m◊9ŸlÄx_äÒ—ãÅ+lıπ‚v,:|mjîÂ·É…“¿%wdq§?>VâW¨ 8"¸∑Î{0;2∏á5F)Ô‡æ◊ŒT∂rÅ∑‹míà∞Iº%v;o}cÅ=â∑™süsh˘Ê∫}Ä4î4a1E\¶mô¡«ã"ÊÑ˘<qr‡I+ŸÏ˘¶ZäÎ:solbØÄaæ5FÎ=üÁ1mC*({B
+ñƒxî/≤Î‰:Ç
